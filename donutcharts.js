@@ -4,7 +4,6 @@
 // email: cafernandez@gmail.com
 // github: https://github.com/crandomize/donutcharts
 
-
 var donut = {
   backgroundCircle: 'transparent',
   classPath:"donut-path",
@@ -29,6 +28,22 @@ var donut = {
     //Add the series:
     
     var numSeries = data.series.length;
+    
+    var totalValue = 0;
+    // Add percentage if we have value instead
+    for (var i=0; i<numSeries; i++) {
+    	var serie = data.series[i];
+      if (serie.value != undefined) totalValue += serie.value;
+    }
+    if(totalValue > 0) {
+      
+    	// Change to percentages
+      for (var i=0; i<numSeries; i++) {
+        var serie = data.series[i];
+        data.series[i].percent = 100*serie.value/totalValue
+      }      
+    }
+    
     
     for (var i=0; i< numSeries; i++) {
     	var serie = data.series[i];
