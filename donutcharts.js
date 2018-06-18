@@ -2,7 +2,9 @@
 //
 // Donut Charts lib
 // email: cafernandez@gmail.com
-//
+// github: https://github.com/crandomize/donutcharts
+
+
 
 var donut = {
   backgroundColor: 'transparent',
